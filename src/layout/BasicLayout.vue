@@ -10,8 +10,10 @@
               <span>{{item.titles}}</span>
             </span>
             <a-menu-item v-for="(item1,index1) in item.childs" :key="index1">
-              <a-icon :type="item1.icon" />
-              <span>{{item1.title}}</span>
+              <router-link :to="item.routerLink">
+                <a-icon :type="item1.icon" />
+                <span>{{item1.title}}</span>
+              </router-link>
             </a-menu-item>
           </a-sub-menu>
         </a-menu>
@@ -29,16 +31,23 @@
         </a-layout-header>
         <a-layout-content
           :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }"
-        >Content +++++++++</a-layout-content>
+        >
+          <router-view>
+              <Home />
+              <Login />
+          </router-view>
+        </a-layout-content>
       </a-layout>
     </a-layout>
   </div>
 </template>
 
 <script>
+import Home from "../view/home/Home.vue";
+import Login from "../view/login/Login.vue";
 export default {
   name: "BasicLayout",
-  components: {},
+  components: { Home, Login },
   data() {
     return {
       collapsed: false,
@@ -49,6 +58,7 @@ export default {
         {
           titles: "菜单",
           iconTypes: "mail",
+          routerLink: "/home",
           childs: [
             { title: "子菜单项", icon: "pie-chart" },
             { title: "子菜单项", icon: "pie-chart" },
@@ -64,6 +74,7 @@ export default {
         {
           titles: "菜单",
           iconTypes: "mail",
+          routerLink: "/login",
           childs: [
             { title: "子菜单项", icon: "pie-chart" },
             { title: "子菜单项", icon: "pie-chart" },
@@ -79,6 +90,7 @@ export default {
         {
           titles: "菜单",
           iconTypes: "mail",
+          routerLink: "/home",
           childs: [
             { title: "子菜单项", icon: "pie-chart" },
             { title: "子菜单项", icon: "pie-chart" },
@@ -94,6 +106,7 @@ export default {
         {
           titles: "菜单",
           iconTypes: "mail",
+          routerLink: "/home",
           childs: [
             { title: "子菜单项", icon: "pie-chart" },
             { title: "子菜单项", icon: "pie-chart" },
@@ -109,6 +122,7 @@ export default {
         {
           titles: "菜单",
           iconTypes: "mail",
+          routerLink: "/home",
           childs: [
             { title: "子菜单项", icon: "pie-chart" },
             { title: "子菜单项", icon: "pie-chart" },
@@ -124,6 +138,7 @@ export default {
         {
           titles: "菜单",
           iconTypes: "mail",
+          routerLink: "/home",
           childs: [
             { title: "子菜单项", icon: "pie-chart" },
             { title: "子菜单项", icon: "pie-chart" },
@@ -139,6 +154,7 @@ export default {
         {
           titles: "菜单",
           iconTypes: "mail",
+          routerLink: "/home",
           childs: [
             { title: "子菜单项", icon: "pie-chart" },
             { title: "子菜单项", icon: "pie-chart" },
@@ -154,6 +170,7 @@ export default {
         {
           titles: "菜单",
           iconTypes: "mail",
+          routerLink: "/home",
           childs: [
             { title: "子菜单项", icon: "pie-chart" },
             { title: "子菜单项", icon: "pie-chart" },
@@ -169,6 +186,7 @@ export default {
         {
           titles: "菜单",
           iconTypes: "mail",
+          routerLink: "/home",
           childs: [
             { title: "子菜单项", icon: "pie-chart" },
             { title: "子菜单项", icon: "pie-chart" },

@@ -1,7 +1,5 @@
 <template>
-  <div>
-   
-  </div>
+  <div>{{message}}</div>
 </template>
 
 <script>
@@ -12,16 +10,16 @@ export default {
   // components: { BasicLayout, Header },
   data() {
     return {
-      message: "22222",
+      message: "home page",
     };
   },
 };
 </script>
 
 <style lang="less" scoped>
-.content {
-  width: 100%;
-  height: 100%;
-  padding: 80px 0 0 240px;
-}
+// .content {
+  // width: 100%;
+  // height: 100%;
+  // padding: 80px 0 0 240px;
+// }
 </style>
