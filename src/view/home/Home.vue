@@ -1,17 +1,15 @@
 <template>
-  <div class="content">
-    <BasicLayout />
-    <a-button type="primary">hello world</a-button>
-    <a-icon type="home" />
+  <div>
+   
   </div>
 </template>
 
 <script>
-import { Button } from "ant-design-vue";
-import  BasicLayout  from '../../components/BasicLayout.vue';
+// import BasicLayout  from '../../components/BasicLayout.vue';
+// import Header from '../../components/Header.vue'
 export default {
   name: "Home",
-  components: { BasicLayout ,Button},
+  // components: { BasicLayout, Header },
   data() {
     return {
       message: "22222",
@@ -22,8 +20,8 @@ export default {
 
 <style lang="less" scoped>
 .content {
-//   background-color: red;
-//   width: 100px;
-//   height: 100px;
+  width: 100%;
+  height: 100%;
+  padding: 80px 0 0 240px;
 }
 </style>

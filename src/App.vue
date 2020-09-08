@@ -1,24 +1,25 @@
 <template>
   <div id="app">
-    <router-view />
-    <Home />
+    <BasicLayout>
+      <router-view />
+    </BasicLayout>
   </div>
 </template>
 
 <script>
-  import Home from './view/home/Home'
+import BasicLayout from "./layout/BasicLayout.vue";
 
-  export default {
-    name: 'App',
-    components: {
-      Home
-    }
-  }
+export default {
+  name: "App",
+  components: {
+    BasicLayout,
+  },
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
