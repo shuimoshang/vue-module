@@ -10,7 +10,7 @@ export default {
   // components: { BasicLayout, Header },
   data() {
     return {
-      message: "home page",
+      message: "世人慌慌张张，不过图碎银几两，而这碎银几两，可解这世间万种慌张，保老人晚年安康，儿女入得学堂，柴米油盐五谷粮。",
     };
   },
 };

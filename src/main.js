@@ -2,11 +2,14 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-// import VueRouter from 'vue-router';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
 import router from './router/index.js';
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
+
 Vue.use(Antd);
+Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false;
 

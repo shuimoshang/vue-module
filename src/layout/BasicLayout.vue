@@ -10,7 +10,7 @@
               <span>{{item.titles}}</span>
             </span>
             <a-menu-item v-for="(item1,index1) in item.childs" :key="index1">
-              <router-link :to="item.routerLink">
+              <router-link :to="item1.routerLink">
                 <a-icon :type="item1.icon" />
                 <span>{{item1.title}}</span>
               </router-link>
@@ -19,22 +19,13 @@
         </a-menu>
       </a-layout-sider>
       <a-layout>
-        <a-layout-header class="layoutHeader">
-          <a-menu mode="horizontal">
-            <a-icon
-              class="trigger"
-              :type="collapsed ? 'menu-unfold' : 'menu-fold'"
-              @click="() => (collapsed = !collapsed)"
-            />
-            <a-menu-item v-for="(item,index) in muneHeaderData" :key="index">{{item}}</a-menu-item>
-          </a-menu>
-        </a-layout-header>
+        <Header @collapsed="getCollapsed" :muneData="muneHeaderData" />
         <a-layout-content
           :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }"
         >
           <router-view>
-              <Home />
-              <Login />
+            <Home />
+            <Login />
           </router-view>
         </a-layout-content>
       </a-layout>
@@ -45,178 +36,25 @@
 <script>
 import Home from "../view/home/Home.vue";
 import Login from "../view/login/Login.vue";
+import Header from "../components/Header";
+import muneData from "./layoutData.js";
 export default {
   name: "BasicLayout",
-  components: { Home, Login },
+  components: { Header, Home, Login },
   data() {
     return {
       collapsed: false,
       selectedKeys: ["1"],
       openKeys: ["sub1"],
       current: ["mail"],
-      menuInlineData: [
-        {
-          titles: "菜单",
-          iconTypes: "mail",
-          routerLink: "/home",
-          childs: [
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-          ],
-        },
-        {
-          titles: "菜单",
-          iconTypes: "mail",
-          routerLink: "/login",
-          childs: [
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-          ],
-        },
-        {
-          titles: "菜单",
-          iconTypes: "mail",
-          routerLink: "/home",
-          childs: [
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-          ],
-        },
-        {
-          titles: "菜单",
-          iconTypes: "mail",
-          routerLink: "/home",
-          childs: [
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-          ],
-        },
-        {
-          titles: "菜单",
-          iconTypes: "mail",
-          routerLink: "/home",
-          childs: [
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-          ],
-        },
-        {
-          titles: "菜单",
-          iconTypes: "mail",
-          routerLink: "/home",
-          childs: [
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-          ],
-        },
-        {
-          titles: "菜单",
-          iconTypes: "mail",
-          routerLink: "/home",
-          childs: [
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-          ],
-        },
-        {
-          titles: "菜单",
-          iconTypes: "mail",
-          routerLink: "/home",
-          childs: [
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-          ],
-        },
-        {
-          titles: "菜单",
-          iconTypes: "mail",
-          routerLink: "/home",
-          childs: [
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-            { title: "子菜单项", icon: "pie-chart" },
-          ],
-        },
-      ],
-      muneHeaderData: [
-        "菜单项",
-        "菜单项",
-        "菜单项",
-        "菜单项",
-        "菜单项",
-        "菜单项",
-        "菜单项",
-        "菜单项",
-        "菜单项",
-      ],
+      menuInlineData: muneData.menuInlineData,
+      muneHeaderData: muneData.muneHeaderData,
+      date:'2020-03-22'
     };
   },
   methods: {
-    toggleCollapsed() {
-      this.collapsed = !this.collapsed;
-      //   34000 + 10000 + 87000
+    getCollapsed(msg) {
+      this.collapsed = msg;
     },
   },
 };
@@ -254,6 +92,8 @@ export default {
   text-align: center;
   height: 100vh;
   overflow-y: scroll;
+  text-align: left;
+  width: 100px;
 }
 
 .layoutSider::-webkit-scrollbar {
