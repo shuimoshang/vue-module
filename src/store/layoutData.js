@@ -3,7 +3,7 @@ let menuInlineData = [{
     iconTypes: "mail",
     childs: [
         { title: "Button", icon: "pie-chart", routerLink: "/home" },
-        { title: "Icon", icon: "pie-chart", routerLink: "/login" }
+        { title: "Icon", icon: "pie-chart", routerLink: "/home" }
     ],
 }, {
     titles: "Layout",

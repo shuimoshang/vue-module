@@ -1,5 +1,5 @@
 <template>
-  <div>{{message}}</div>
+  <div>{{ message }}</div>
 </template>
 
 <script>
@@ -10,16 +10,23 @@ export default {
   // components: { BasicLayout, Header },
   data() {
     return {
-      message: "世人慌慌张张，不过图碎银几两，而这碎银几两，可解这世间万种慌张，保老人晚年安康，儿女入得学堂，柴米油盐五谷粮。",
+      message:
+        "世人慌慌张张，不过图碎银几两，而这碎银几两，可解这世间万种慌张，保老人晚年安康，儿女入得学堂，柴米油盐五谷粮。",
+      muneHeaderData: ["Home1", "Home2", "Home3", "Home4"],
+      layoutTF: true,
     };
+  },
+  created() {
+    this.$store.state.muneHeaderData = this.muneHeaderData;
+    this.$store.state.layoutTF = this.layoutTF;
   },
 };
 </script>
 
 <style lang="less" scoped>
 // .content {
-  // width: 100%;
-  // height: 100%;
-  // padding: 80px 0 0 240px;
+// width: 100%;
+// height: 100%;
+// padding: 80px 0 0 240px;
 // }
 </style>

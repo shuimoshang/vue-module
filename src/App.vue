@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <BasicLayout>
+    <BasicLayout v-if="$store.state.layoutTF">
       <router-view />
     </BasicLayout>
+    <router-view v-if="!$store.state.layoutTF" />
   </div>
 </template>
 

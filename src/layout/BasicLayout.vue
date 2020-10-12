@@ -25,7 +25,6 @@
         >
           <router-view>
             <Home />
-            <Login />
           </router-view>
         </a-layout-content>
       </a-layout>
