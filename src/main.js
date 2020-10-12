@@ -5,6 +5,7 @@ import App from './App'
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import router from './router/index.js';
+import store from './store/index';
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 
@@ -18,5 +19,6 @@ new Vue({
     el: '#app',
     components: { App },
     template: '<App/>',
-    router: router,
+    router,
+    store,
 })

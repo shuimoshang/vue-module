@@ -1,8 +1,8 @@
  import Vue from 'vue';
  import Router from 'vue-router';
  Vue.use(VueRouter);
- import Home from '@/view/home/Home';
- import Login from '@/view/login/Login';
+ import Home from '@/view/Home';
+ import Login from '@/view/Login';
  import VueRouter from 'vue-router';
 
  const routes = [{

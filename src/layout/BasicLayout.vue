@@ -4,7 +4,7 @@
       <a-layout-sider v-model="collapsed" :trigger="null" collapsible class="layoutSider">
         <div class="logo" />
         <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
-          <a-sub-menu v-for="(item,index) in menuInlineData" :key="index">
+          <a-sub-menu v-for="(item,index) in $store.state.menuInlineData" :key="index">
             <span slot="title">
               <a-icon :type="item.iconTypes" />
               <span>{{item.titles}}</span>
@@ -19,7 +19,7 @@
         </a-menu>
       </a-layout-sider>
       <a-layout>
-        <Header @collapsed="getCollapsed" :muneData="muneHeaderData" />
+        <Header @collapsed="getCollapsed" />
         <a-layout-content
           :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }"
         >
@@ -34,22 +34,16 @@
 </template>
 
 <script>
-import Home from "../view/home/Home.vue";
-import Login from "../view/login/Login.vue";
+import Home from "../view/Home.vue";
+import Login from "../view/Login.vue";
 import Header from "../components/Header";
-import muneData from "./layoutData.js";
+
 export default {
   name: "BasicLayout",
   components: { Header, Home, Login },
   data() {
     return {
       collapsed: false,
-      selectedKeys: ["1"],
-      openKeys: ["sub1"],
-      current: ["mail"],
-      menuInlineData: muneData.menuInlineData,
-      muneHeaderData: muneData.muneHeaderData,
-      date:'2020-03-22'
     };
   },
   methods: {

@@ -7,7 +7,7 @@
           :type="collapsed ? 'menu-unfold' : 'menu-fold'"
           @click="setCollapsed"
         />
-        <a-menu-item v-for="(item,index) in muneData" :key="index">{{item}}</a-menu-item>
+        <a-menu-item v-for="(item,index) in $store.state.muneHeaderData" :key="index">{{item}}</a-menu-item>
       </a-menu>
     </a-layout-header>
   </div>
@@ -16,7 +16,6 @@
 <script>
 export default {
   name: "Header",
-  props: ["muneData"],
   data() {
     return {
       meassage: "header menu",
@@ -27,7 +26,6 @@ export default {
     setCollapsed() {
       this.collapsed = !this.collapsed;
       this.$emit("collapsed", this.collapsed);
-      //   this.collapsed = !this.collapsed;
     },
   },
 };
