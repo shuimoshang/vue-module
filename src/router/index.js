@@ -3,6 +3,7 @@
  Vue.use(VueRouter);
  import Home from '@/view/Home';
  import Login from '@/view/Login';
+ import PurpleHome from '@/view/PurpleHome';
  import VueRouter from 'vue-router';
 
  const routes = [{
@@ -13,6 +14,10 @@
      path: '/login',
      name: "Login",
      component: Login
+ }, {
+     path: '/purpleHome',
+     name: "PurpleHome",
+     component: PurpleHome
  }, {
      path: '/',
      name: "Login",

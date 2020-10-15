@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import muneData from "./layoutData.js";
+import purpleData from "./PurpleHomeData.js";
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
@@ -9,6 +10,7 @@ const store = new Vuex.Store({
         layoutTF: true,
         menuInlineData: muneData.menuInlineData,
         muneHeaderData: muneData.muneHeaderData,
+        purpleData,
     },
     getters: {
         // state的计算属性

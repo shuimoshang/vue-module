@@ -1,8 +1,8 @@
 let menuInlineData = [{
-    titles: "General",
+    titles: "Home",
     iconTypes: "mail",
     childs: [
-        { title: "Button", icon: "pie-chart", routerLink: "/home" },
+        { title: "PurpleHome", icon: "pie-chart", routerLink: "/purpleHome" },
         { title: "Icon", icon: "pie-chart", routerLink: "/home" }
     ],
 }, {

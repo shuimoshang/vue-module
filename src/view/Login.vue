@@ -5,7 +5,7 @@
         <h2>Log In</h2>
         <a-input placeholder="USERNAME" />
         <a-input placeholder="PASSWORD" type="password" />
-         <router-link to="/home"><button onclick="">SIGN IN</button> </router-link>
+        <button @click="loginClick">SIGN IN</button>
         <p>
           <span style="color: #a7aaac">Creat new account</span>
           <span style="color: #444850">Forget Password?</span>
@@ -38,6 +38,12 @@ export default {
   },
   created() {
     this.$store.state.layoutTF = this.layoutTF;
+  },
+  methods: {
+    loginClick() {
+
+      this.$router.push("/purpleHome");
+    },
   },
 };
 </script>
